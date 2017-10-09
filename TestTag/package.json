@@ -1,0 +1,19 @@
+{
+    "name": "TestTag",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "cordova-plugin-device": "1.1.6",
+        "cordova-plugin-dialogs": "1.3.3",
+        "cordova-plugin-whitelist": "1",
+        "nfc.plugin.NfcVPlugin": "https://github.com/davidHaunschmied/cordova-nfc-plugin"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-device": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-whitelist": {},
+            "nfc.plugin.NfcVPlugin": {}
+        }
+    }
+}

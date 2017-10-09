@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="nfc.plugin.NfcVPlugin"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+      version="0.1.0">
+    <name>NfcVPlugin</name>
+    <description>Cordova NfcV Plugin</description>
+    <license>MIT</license>
+    <keywords>nfc, nfcv</keywords>
+ 
+    <js-module src="www/nfcvplugin.js" name="nfc">
+        <clobbers target="nfc" />
+    </js-module>
+ 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NfcVPlugin">
+                <param name="android-package" value="nfc.plugin.NfcVPlugin"/>
+				<param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.NFC"/>
+        <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+      </config-file>
+ 
+        <source-file src="src/android/NfcVPlugin.java" target-dir="src/nfc/plugin" />      
+		<source-file src="src/android/NfcVHandler.java" target-dir="src/nfc/plugin" />   
+     </platform>          
+</plugin>

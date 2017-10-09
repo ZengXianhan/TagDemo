@@ -1,0 +1,57 @@
+<div class="pageheader">
+    <h1>Read Tray/Machine ID</h1>
+    <p class="description"></p>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li class="active">Read and write tag info</li>
+        </ol>
+    </div>
+</div>
+<section id="main-content" class="animated fadeInRight" ng-controller="NFCController">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" ng-click="RetrieveTray()">Read Tray Id</button>
+
+                            <button type="button" class="btn btn-primary" ng-click="RetrieveMachine()">Read Machine Id</button>
+                        </div>
+                    </div>  
+                    <form role="form" ng-show="trayIdShow" class="top-space">
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="tListening">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Listening for Tray ID.
+                        </div>
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="tEmpty">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Empty payload message...
+                        </div>
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="tSuccess">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Read Success.
+                        </div>
+                        <div class="form-group">
+                            <label for="trayId">Tray Id:</label>
+                            <input type="text" id="trayId" class="form-control" ng-model="ttag" disabled="disabled">
+                        </div> 
+                    </form>
+                    <form role="form" ng-show="machineIdShow" class="top-space">
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="mListening">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Listening for Machine ID.
+                        </div>
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="mEmpty">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Empty payload message...
+                        </div>
+                        <div class="alert alert-info alert-dismissable" id="successmsg" ng-show="mSuccess">
+                            <strong><i class="fa  fa-info-circle"></i></strong>  Read Success.
+                        </div>
+                        <div class="form-group">
+                            <label for="machineId">Machine Id:</label>
+                            <input type="text" id="machineId" class="form-control" ng-model="mtag" disabled="disabled">
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
