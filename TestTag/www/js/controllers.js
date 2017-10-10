@@ -27,7 +27,7 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
         $scope.tListening = true;
         $timeout(function () {
             $scope.tListening = false;
-        }, 5000);
+        }, 3000);
     }
     $scope.RetrieveMachine = function () {
         $scope.mtag = "";
@@ -37,7 +37,7 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
         $scope.mListening = true;
         $timeout(function () {
             $scope.mListening = false;
-        }, 5000);
+        }, 3000);
     }
     //ReadNFC();
     function initTray() {
