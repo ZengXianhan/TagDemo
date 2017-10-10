@@ -26,8 +26,10 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
         $scope.machineIdShow = false;
         $scope.tListening = true;
         $timeout(function () {
-            $scope.tListening = false;
-        }, 3000);
+            if ($scope.tListening === true) {
+                $scope.tListening = false;
+            }
+        }, 5000);
     }
     $scope.RetrieveMachine = function () {
         $scope.mtag = "";
@@ -36,8 +38,10 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
         $scope.machineIdShow = true;
         $scope.mListening = true;
         $timeout(function () {
-            $scope.mListening = false;
-        }, 3000);
+            if ($scope.mListening === true) {
+                $scope.mListening = false;
+            } 
+        }, 5000);
     }
     //ReadNFC();
     function initTray() {
@@ -46,9 +50,14 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
                 alert("Read TrayId Success");
                 //alert("TrayIdHex: " + nfcEvent);
                 $scope.ttag = nfcEvent;
+                $scope.trayId = nfcEvent;
+                $scope.tListening = false;
+                $scope.$apply();
             }, function (nfcEvent) {
-                alert("error");
+                alert("error, try again.");
                 alert(nfcEvent);
+                $scope.tListening = false;
+                $scope.$apply();
             });
     }
 
@@ -58,10 +67,14 @@ app.controller('NFCController', function ($scope, $timeout, $modal) {
                 alert("Read MachineId Success.");
                 //alert("Machine Id: " + nfcEvent);
                 $scope.mtag = nfcEvent;
-
+                $scope.machineId = nfcEvent;
+                $scope.mListening = false;
+                $scope.$apply();
             }, function (nfcEvent) {
-                alert("error");
+                alert("error, try again.");
                 alert(nfcEvent);
+                $scope.mListening = false;
+                $scope.$apply();
             });
     }
 
